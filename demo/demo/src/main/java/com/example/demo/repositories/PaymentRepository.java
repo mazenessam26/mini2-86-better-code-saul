@@ -6,7 +6,7 @@ import java.util.List;
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     // Find payments by trip ID
-    List<Payment> findByTrip_Id(Long tripId);
+    List<Payment> findByTripId(Long tripId);
 
 
     // Find payments with amount above threshold

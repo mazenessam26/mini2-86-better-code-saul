@@ -53,7 +53,7 @@ public class PaymentService {
     // 8.4.2.6 Find Payments By Trip ID
     public List<Payment> findPaymentsByTripId(Long tripId) {
         // Make sure the repository method returns a list instead of a single object
-        return paymentRepository.findByTrip_Id(tripId);
+        return paymentRepository.findByTripId(tripId);
     }
 
     // 8.4.2.7 Find Payments With an Amount Greater Than a Threshold
