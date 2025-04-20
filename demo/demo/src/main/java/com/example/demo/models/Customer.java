@@ -32,6 +32,12 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public Customer(String name, String email, String phoneNumber) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
     // Getters and setters...
 
     public Long getId() {
@@ -70,8 +76,8 @@ public class Customer {
         return trips;
     }
 
-    public void setTrips(List<Trip> trips) {
-        this.trips = trips;
+    public void setTrips(List<Trip> Trip) {
+        this.trips = Trip;
     }
 }
 

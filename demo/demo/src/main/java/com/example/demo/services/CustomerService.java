@@ -18,8 +18,8 @@ public class CustomerService {
     }
 
     // 8.2.2.1 Add Customer
-    public Customer addCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer addCustomer(Customer Customer) {
+        return customerRepository.save(Customer);
     }
 
     // 8.2.2.2 Get All Customers

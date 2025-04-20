@@ -5,7 +5,6 @@ import com.example.demo.repositories.CaptainRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CaptainService {
@@ -17,8 +16,8 @@ public class CaptainService {
     }
 
     // 8.1.2.1 Add Captain
-    public Captain addCaptain(Captain captain) {
-        return captainRepository.save(captain);
+    public Captain addCaptain(Captain Captain) {
+        return captainRepository.save(Captain);
     }
 
     // 8.1.2.2 Get All Captains
@@ -39,11 +38,11 @@ public class CaptainService {
 
     // 8.1.2.5 Filter by License Number
     public Captain getCaptainByLicenseNumber(String licenseNumber) {
-        Captain captain = captainRepository.findByLicenseNumber(licenseNumber);
-        if (captain == null) {
+        Captain Captain = captainRepository.findByLicenseNumber(licenseNumber);
+        if (Captain == null) {
             throw new RuntimeException("Captain not found with license number: " + licenseNumber);
         }
-        return captain;
+        return Captain;
     }
 }
 

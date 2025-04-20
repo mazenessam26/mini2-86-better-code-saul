@@ -16,11 +16,11 @@ public class Trip {
     private Double tripCost;
 
     @ManyToOne
-    @JoinColumn(name = "captain_id")
+    @JoinColumn(name = "captains_id")
     private Captain captain;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customers_id")
     private Customer customer;
 
     @OneToOne(mappedBy = "trip", cascade = CascadeType.ALL)
@@ -35,6 +35,13 @@ public class Trip {
 
     public Trip(Long id, LocalDateTime tripDate, String origin, String destination, Double tripCost) {
         this.id = id;
+        this.tripDate = tripDate;
+        this.origin = origin;
+        this.destination = destination;
+        this.tripCost = tripCost;
+    }
+
+    public Trip(LocalDateTime tripDate, String origin, String destination, Double tripCost) {
         this.tripDate = tripDate;
         this.origin = origin;
         this.destination = destination;
@@ -87,24 +94,24 @@ public class Trip {
         return captain;
     }
 
-    public void setCaptain(Captain captain) {
-        this.captain = captain;
+    public void setCaptain(Captain Captain) {
+        this.captain = Captain;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(Customer Customer) {
+        this.customer = Customer;
     }
 
     public Payment getPayment() {
         return payment;
     }
 
-    public void setPayment(Payment payment) {
-        this.payment = payment;
+    public void setPayment(Payment Payment) {
+        this.payment = Payment;
     }
 }
 
