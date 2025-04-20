@@ -1,5 +1,5 @@
 package com.example.demo.services;
-import com.example.demo.models.Trip;
+import com.example.demo.models.trips;
 import com.example.demo.repositories.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,31 +18,31 @@ public class TripService {
     }
 
     // 8.3.2.1 Add Trip
-    public Trip addTrip(Trip trip) {
-        return tripRepository.save(trip);
+    public trips addTrip(trips trips) {
+        return tripRepository.save(trips);
     }
 
     // 8.3.2.2 Get All Trips
-    public List<Trip> getAllTrips() {
+    public List<trips> getAllTrips() {
         return tripRepository.findAll();
     }
 
     // 8.3.2.3 Get Trip By ID
-    public Trip getTripById(Long id) {
+    public trips getTripById(Long id) {
         return tripRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Trip not found with ID: " + id));
     }
 
     // 8.3.2.4 Update Trip
-    public Trip updateTrip(Long id, Trip updatedTrip) {
-        Trip existingTrip = getTripById(id);
-        existingTrip.setTripDate(updatedTrip.getTripDate());
-        existingTrip.setOrigin(updatedTrip.getOrigin());
-        existingTrip.setDestination(updatedTrip.getDestination());
-        existingTrip.setTripCost(updatedTrip.getTripCost());
-        existingTrip.setCaptain(updatedTrip.getCaptain());
-        existingTrip.setCustomer(updatedTrip.getCustomer());
-        return tripRepository.save(existingTrip);
+    public trips updateTrip(Long id, trips updatedTrips) {
+        trips existingTrips = getTripById(id);
+        existingTrips.setTripDate(updatedTrips.getTripDate());
+        existingTrips.setOrigin(updatedTrips.getOrigin());
+        existingTrips.setDestination(updatedTrips.getDestination());
+        existingTrips.setTripCost(updatedTrips.getTripCost());
+        existingTrips.setCaptain(updatedTrips.getCaptain());
+        existingTrips.setCustomer(updatedTrips.getCustomer());
+        return tripRepository.save(existingTrips);
     }
 
     // 8.3.2.5 Delete Trip
@@ -54,12 +54,12 @@ public class TripService {
     }
 
     // 8.3.2.6 Find Trips Within a Date Range
-    public List<Trip> findTripsWithinDateRange(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<trips> findTripsWithinDateRange(LocalDateTime startDate, LocalDateTime endDate) {
         return tripRepository.findByTripDateBetween(startDate, endDate);
     }
 
     // 8.3.2.7 Find Trips By Captain ID
-    public List<Trip> findTripsByCaptainId(Long captainId) {
+    public List<trips> findTripsByCaptainId(Long captainId) {
         return tripRepository.findByCaptainId(captainId);
     }
 }

@@ -1,16 +1,16 @@
 package com.example.demo.repositories;
 
-import com.example.demo.models.Captain;
+import com.example.demo.models.captains;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+
 import java.util.List;
 
-public interface CaptainRepository extends JpaRepository<Captain, Long> {
+public interface CaptainRepository extends JpaRepository<captains, Long> {
 
     // Find all captains with rating above a threshold
-    List<Captain> findByAvgRatingScoreGreaterThan(Double threshold);
+    List<captains> findByAvgRatingScoreGreaterThan(Double threshold);
 
     // Find captain by license number
-    Captain findByLicenseNumber(String licenseNumber);
+    captains findByLicenseNumber(String licenseNumber);
 }
 

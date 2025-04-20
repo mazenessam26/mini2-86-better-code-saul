@@ -1,6 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.models.Payment;
+import com.example.demo.models.payments;
 import com.example.demo.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,29 +19,29 @@ public class PaymentService {
     }
 
     // 8.4.2.1 Add Payment
-    public Payment addPayment(Payment payment) {
-        return paymentRepository.save(payment);
+    public payments addPayment(payments payments) {
+        return paymentRepository.save(payments);
     }
 
     // 8.4.2.2 Get All Payments
-    public List<Payment> getAllPayments() {
+    public List<payments> getAllPayments() {
         return paymentRepository.findAll();
     }
 
     // 8.4.2.3 Get Payment By ID
-    public Payment getPaymentById(Long id) {
-        Optional<Payment> optionalPayment = paymentRepository.findById(id);
+    public payments getPaymentById(Long id) {
+        Optional<payments> optionalPayment = paymentRepository.findById(id);
         return optionalPayment.orElse(null);
     }
 
     // 8.4.2.4 Update Payment
-    public Payment updatePayment(Long id, Payment updatedPayment) {
-        return paymentRepository.findById(id).map(payment -> {
-            payment.setAmount(updatedPayment.getAmount());
-            payment.setPaymentMethod(updatedPayment.getPaymentMethod());
-            payment.setPaymentStatus(updatedPayment.getPaymentStatus());
-            payment.setTrip(updatedPayment.getTrip());
-            return paymentRepository.save(payment);
+    public payments updatePayment(Long id, payments updatedPayments) {
+        return paymentRepository.findById(id).map(payments -> {
+            payments.setAmount(updatedPayments.getAmount());
+            payments.setPaymentMethod(updatedPayments.getPaymentMethod());
+            payments.setPaymentStatus(updatedPayments.getPaymentStatus());
+            payments.setTrip(updatedPayments.getTrip());
+            return paymentRepository.save(payments);
         }).orElse(null);
     }
 
@@ -51,15 +51,15 @@ public class PaymentService {
     }
 
     // 8.4.2.6 Find Payments By Trip ID
-    public List<Payment> findPaymentsByTripId(Long tripId) {
+    public List<payments> findPaymentsByTripId(Long tripId) {
         // Make sure the repository method returns a list instead of a single object
         return paymentRepository.findAll().stream()
-                .filter(payment -> payment.getTrip() != null && payment.getTrip().getId().equals(tripId))
+                .filter(payments -> payments.getTrip() != null && payments.getTrip().getId().equals(tripId))
                 .toList();
     }
 
     // 8.4.2.7 Find Payments With an Amount Greater Than a Threshold
-    public List<Payment> findByAmountThreshold(Double threshold) {
+    public List<payments> findByAmountThreshold(Double threshold) {
         return paymentRepository.findByAmountGreaterThan(threshold);
     }
 }

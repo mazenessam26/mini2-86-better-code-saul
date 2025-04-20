@@ -1,14 +1,14 @@
 package com.example.demo.repositories;
-import com.example.demo.models.Customer;
+import com.example.demo.models.customers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<customers, Long> {
 
     // Find customers by email domain
-    List<Customer> findByEmailEndingWith(String domain);
+    List<customers> findByEmailEndingWith(String domain);
 
     // Find customers by phone prefix
-    List<Customer> findByPhoneNumberStartingWith(String prefix);
+    List<customers> findByPhoneNumberStartingWith(String prefix);
 }
 

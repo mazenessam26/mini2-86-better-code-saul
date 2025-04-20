@@ -1,11 +1,10 @@
 package com.example.demo.services;
 
-import com.example.demo.models.Captain;
+import com.example.demo.models.captains;
 import com.example.demo.repositories.CaptainRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CaptainService {
@@ -17,33 +16,33 @@ public class CaptainService {
     }
 
     // 8.1.2.1 Add Captain
-    public Captain addCaptain(Captain captain) {
-        return captainRepository.save(captain);
+    public captains addCaptain(captains captains) {
+        return captainRepository.save(captains);
     }
 
     // 8.1.2.2 Get All Captains
-    public List<Captain> getAllCaptains() {
+    public List<captains> getAllCaptains() {
         return captainRepository.findAll();
     }
 
     // 8.1.2.3 Get Captain By ID
-    public Captain getCaptainById(Long id) {
+    public captains getCaptainById(Long id) {
         return captainRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Captain not found with ID: " + id));
     }
 
     // 8.1.2.4 Filter by Rating
-    public List<Captain> getCaptainsByRating(Double ratingThreshold) {
+    public List<captains> getCaptainsByRating(Double ratingThreshold) {
         return captainRepository.findByAvgRatingScoreGreaterThan(ratingThreshold);
     }
 
     // 8.1.2.5 Filter by License Number
-    public Captain getCaptainByLicenseNumber(String licenseNumber) {
-        Captain captain = captainRepository.findByLicenseNumber(licenseNumber);
-        if (captain == null) {
+    public captains getCaptainByLicenseNumber(String licenseNumber) {
+        captains captains = captainRepository.findByLicenseNumber(licenseNumber);
+        if (captains == null) {
             throw new RuntimeException("Captain not found with license number: " + licenseNumber);
         }
-        return captain;
+        return captains;
     }
 }
 
