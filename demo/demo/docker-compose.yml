@@ -25,7 +25,9 @@ services:
       - mongodata:/data/db
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: mini2-app
     depends_on:
       - postgres
