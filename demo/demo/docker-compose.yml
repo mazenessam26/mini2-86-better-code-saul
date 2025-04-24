@@ -37,21 +37,13 @@ services:
       INSTANCE_NAME: "Main Instance"
 
       # PostgreSQL
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mini2
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/mini2
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 1234
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
 
-      # JPA
-      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_GENERATE_DDL: true
-      SPRING_JPA_SHOW_SQL: true
-      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: true
-      SPRING_JPA_PROPERTIES_HIBERNATE_USE_SQL_COMMENTS: true
-
       # MongoDB
-      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/mini2
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/
       SPRING_DATA_MONGODB_DATABASE: mini2
 
 volumes:

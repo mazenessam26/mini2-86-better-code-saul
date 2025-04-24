@@ -47,9 +47,7 @@ public class TripService {
 
     // 8.3.2.5 Delete Trip
     public void deleteTrip(Long id) {
-        if (!tripRepository.existsById(id)) {
-            throw new RuntimeException("Trip not found with ID: " + id);
-        }
+
         tripRepository.deleteById(id);
     }
 

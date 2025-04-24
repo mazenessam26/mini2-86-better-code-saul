@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.models.Captain;
 import com.example.demo.repositories.CaptainRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class CaptainService {
 
     private final CaptainRepository captainRepository;
 
+    @Autowired
     public CaptainService(CaptainRepository captainRepository) {
         this.captainRepository = captainRepository;
     }
@@ -38,11 +40,11 @@ public class CaptainService {
 
     // 8.1.2.5 Filter by License Number
     public Captain getCaptainByLicenseNumber(String licenseNumber) {
-        Captain Captain = captainRepository.findByLicenseNumber(licenseNumber);
-        if (Captain == null) {
-            throw new RuntimeException("Captain not found with license number: " + licenseNumber);
-        }
-        return Captain;
+        return captainRepository.findByLicenseNumber(licenseNumber);
+//        if (Captain == null) {
+//            throw new RuntimeException("Captain not found with license number: " + licenseNumber);
+//        }
+
     }
 }
 

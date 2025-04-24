@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "payments")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +14,7 @@ public class Payment {
     private Boolean paymentStatus;
 
     @OneToOne
-    @JoinColumn(name = "trips_id")
+    @JoinColumn(name = "trip_id")
     private Trip trip;
 
     public Payment() {}

@@ -44,9 +44,7 @@ public class CustomerService {
 
     // 8.2.2.5 Delete Customer
     public void deleteCustomer(Long id) {
-        if (!customerRepository.existsById(id)) {
-            throw new RuntimeException("Customer not found with ID: " + id);
-        }
+
         customerRepository.deleteById(id);
     }
 

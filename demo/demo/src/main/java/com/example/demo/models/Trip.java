@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "trips")
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +17,11 @@ public class Trip {
     private Double tripCost;
 
     @ManyToOne
-    @JoinColumn(name = "captains_id")
+    @JoinColumn(name = "captain_id")
     private Captain captain;
 
     @ManyToOne
-    @JoinColumn(name = "customers_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToOne(mappedBy = "trip", cascade = CascadeType.ALL)
