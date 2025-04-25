@@ -18,8 +18,8 @@ public class CustomerService {
     }
 
     // 8.2.2.1 Add Customer
-    public Customer addCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer addCustomer(Customer Customer) {
+        return customerRepository.save(Customer);
     }
 
     // 8.2.2.2 Get All Customers
@@ -44,9 +44,7 @@ public class CustomerService {
 
     // 8.2.2.5 Delete Customer
     public void deleteCustomer(Long id) {
-        if (!customerRepository.existsById(id)) {
-            throw new RuntimeException("Customer not found with ID: " + id);
-        }
+
         customerRepository.deleteById(id);
     }
 

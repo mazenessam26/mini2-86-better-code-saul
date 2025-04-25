@@ -19,8 +19,8 @@ public class PaymentService {
     }
 
     // 8.4.2.1 Add Payment
-    public Payment addPayment(Payment payment) {
-        return paymentRepository.save(payment);
+    public Payment addPayment(Payment Payment) {
+        return paymentRepository.save(Payment);
     }
 
     // 8.4.2.2 Get All Payments
@@ -36,12 +36,12 @@ public class PaymentService {
 
     // 8.4.2.4 Update Payment
     public Payment updatePayment(Long id, Payment updatedPayment) {
-        return paymentRepository.findById(id).map(payment -> {
-            payment.setAmount(updatedPayment.getAmount());
-            payment.setPaymentMethod(updatedPayment.getPaymentMethod());
-            payment.setPaymentStatus(updatedPayment.getPaymentStatus());
-            payment.setTrip(updatedPayment.getTrip());
-            return paymentRepository.save(payment);
+        return paymentRepository.findById(id).map(Payment -> {
+            Payment.setAmount(updatedPayment.getAmount());
+            Payment.setPaymentMethod(updatedPayment.getPaymentMethod());
+            Payment.setPaymentStatus(updatedPayment.getPaymentStatus());
+            Payment.setTrip(updatedPayment.getTrip());
+            return paymentRepository.save(Payment);
         }).orElse(null);
     }
 
@@ -53,9 +53,7 @@ public class PaymentService {
     // 8.4.2.6 Find Payments By Trip ID
     public List<Payment> findPaymentsByTripId(Long tripId) {
         // Make sure the repository method returns a list instead of a single object
-        return paymentRepository.findAll().stream()
-                .filter(payment -> payment.getTrip() != null && payment.getTrip().getId().equals(tripId))
-                .toList();
+        return paymentRepository.findByTripId(tripId);
     }
 
     // 8.4.2.7 Find Payments With an Amount Greater Than a Threshold

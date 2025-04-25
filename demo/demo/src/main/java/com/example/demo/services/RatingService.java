@@ -18,8 +18,8 @@ public class RatingService {
     }
 
     // 8.5.2.1 Add Rating
-    public Rating addRating(Rating rating) {
-        return ratingRepository.save(rating);
+    public Rating addRating(Rating Rating) {
+        return ratingRepository.save(Rating);
     }
 
     // 8.5.2.2 Update Rating

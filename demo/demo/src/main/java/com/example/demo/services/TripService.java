@@ -18,8 +18,8 @@ public class TripService {
     }
 
     // 8.3.2.1 Add Trip
-    public Trip addTrip(Trip trip) {
-        return tripRepository.save(trip);
+    public Trip addTrip(Trip Trip) {
+        return tripRepository.save(Trip);
     }
 
     // 8.3.2.2 Get All Trips
@@ -47,9 +47,7 @@ public class TripService {
 
     // 8.3.2.5 Delete Trip
     public void deleteTrip(Long id) {
-        if (!tripRepository.existsById(id)) {
-            throw new RuntimeException("Trip not found with ID: " + id);
-        }
+
         tripRepository.deleteById(id);
     }
 

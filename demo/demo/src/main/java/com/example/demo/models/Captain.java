@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "captains")
 public class Captain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +24,10 @@ public class Captain {
     }
 
     // Partial constructor
-    public Captain(String name, String licenseNumber) {
+    public Captain(String name, String licenseNumber, Double avgRatingScore) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.avgRatingScore = avgRatingScore;
     }
 
     // Full constructor
@@ -74,8 +76,8 @@ public class Captain {
         return trips;
     }
 
-    public void setTrips(List<Trip> trips) {
-        this.trips = trips;
+    public void setTrips(List<Trip> Trip) {
+        this.trips = Trip;
     }
 }
 

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "payments")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,12 @@ public class Payment {
 
     public Payment(Long id, Double amount, String paymentMethod, Boolean paymentStatus) {
         this.id = id;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+        this.paymentStatus = paymentStatus;
+    }
+
+    public Payment(Double amount, String paymentMethod, Boolean paymentStatus) {
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
@@ -68,8 +75,8 @@ public class Payment {
         return trip;
     }
 
-    public void setTrip(Trip trip) {
-        this.trip = trip;
+    public void setTrip(Trip Trip) {
+        this.trip = Trip;
     }
 }
 
